@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+
+  "name": "BitJira",
+  "description": "This extension shows a link to the Jira ticket for the current Pull Request title on Bitbucket",
+  "version": "1.0",
+  "browser_action": {
+    "default_popup": "config.html",
+    "default_title": "BitJira"
+  },
+  "permissions": [
+    "tabs",
+    "<all_urls>",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "js": [
+        "js/lib/jquery-2.2.3.min.js",
+        "js/bitjira.js"
+      ],
+      "matches": [
+        "http://*.bitbucket.org/*",
+        "https://*.bitbucket.org/*"
+      ]
+    }
+  ]
+}
